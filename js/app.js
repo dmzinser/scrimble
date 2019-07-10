@@ -120,24 +120,25 @@ const game = {
       this.gameWon();
     }
   },
+  
+  clock() {
+    setInterval( () => {
+      if(newPlayer.time > 0) {
+        newPlayer.time -=1;
+        const timer = document.querySelector("#time");
+        timer.innerText = (`Time Remaining: ${newPlayer.time}`);
+      } else if(newPlayer.time === 0) {
+        this.gameOver();
+        newPlayer.time = -1; // i HATE this hack to keep from continually reloading this.gameOver() bc newPlayer.time always equal zero w/o it.
+        }
+    }, 1000);
+  },
 
   gameWon() {
     if(newPlayer.game === 1) {
       alert("Game Over!");
       location.reload();
     }
-  },
-
-  clock() {
-    setInterval( () => {
-      if(newPlayer.time === 0) {
-        this.gameOver();
-      } else {
-          newPlayer.time -=1;
-          const timer = document.querySelector("#time");
-          timer.innerText = (`Time Remaining: ${newPlayer.time}`);
-        }
-    }, 1000);
   },
 
   gameOver() {
