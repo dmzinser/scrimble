@@ -46,5 +46,5 @@ If the user correctly unscrambles a total of nine words (3 rounds of 3 words eac
 If the user cannot correctly unscramble a total of nine words (3 rounds of 3 words each) within the allotted time frame, they have lost the game and are prompted accordingly.  After losing, they are given the option to play again and, if selected, the game will reset to the landing page.
 
 ## Gameplay
-<img src="https://media.giphy.com/media/dxsya04q6fJiZXbz5x/giphy.gif">
+<img src="https://media.giphy.com/media/dxsya04q6fJiZXbz5x/giphy.gif" width=100>
 The above GIF is an example of a succesfully completed game of Scrimble.
