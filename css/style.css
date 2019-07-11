@@ -61,6 +61,7 @@ input[type="text"] {
 }
 
 .great-job {
+  height: 358px;
   position: fixed;
   bottom: 0;
   left: 0;
