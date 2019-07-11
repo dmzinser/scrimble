@@ -53,7 +53,8 @@ const game = {
       for(let i = 0; i < staticLength; i++) 
       newWord += wordChars.splice(Math.floor(Math.random(wordChars[i]) * wordChars.length), 1).join("");
       let scrimbleDisplay = document.querySelector("#scrimbles");
-      let wordDisplay = document.createElement("h2")
+      let wordDisplay = document.createElement("span");
+      wordDisplay.setAttribute("class", "span");
       wordDisplay.innerText = newWord;
       scrimbleDisplay.appendChild(wordDisplay);
     } else {
@@ -129,20 +130,24 @@ const game = {
         timer.innerText = (`Time Remaining: ${newPlayer.time}`);
       } else if(newPlayer.time === 0) {
         this.gameOver();
-        newPlayer.time = -1; // i HATE this hack to keep from continually reloading this.gameOver() bc newPlayer.time always equal zero w/o it.
+        newPlayer.time = -1; // i HATE this hack to keep from continually reloading this.gameOver() bc newPlayer.time always equals zero w/o it.
         }
     }, 1000);
   },
 
   gameWon() {
     if(newPlayer.game === 1) {
-      alert("Game Over!");
+      newPlayer.time = -1;
+      alert("You Won! Play Again");
       location.reload();
     }
   },
 
   gameOver() {
-    console.log("GAME OVER!");
+    setTimeout(() => {
+      alert(`You Lost ${newPlayer.name}!  Play Again?`);
+      location.reload();
+    }, 1900)
     // play again and reload
   }
 }

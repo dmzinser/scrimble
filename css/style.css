@@ -1,0 +1,51 @@
+body {
+  background-image: url("https://i.imgur.com/fcDaRMT.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+h1 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  right: 0;
+  left: 0;
+}
+
+.button {
+  margin: auto;
+  display: block;
+  margin-top: 250px;
+  background-image: -webkit-linear-gradient(top, #2980B9, #6DD5FA, #ffffff);
+  border-radius: 50px;
+  font-family: Arial;
+  color: #fafafa;
+  font-size: 27px;
+  padding: 19px;
+}
+
+.input {
+  margin: auto;
+  display: block;
+  margin-top: 150px;
+}
+
+input[type="text"] {
+  margin: auto;
+  display: block;
+  margin-top: 75px;
+  border-radius: 10px;
+  width: 200px;
+  height: 10px;
+  font-size: 35px;
+  padding: 19px;
+  text-align: center;
+  font-family: Arial;
+}
+
+.span { 
+  margin: auto;
+  display: table;
+  margin-top: 75px;
+  font-family: Arial;
+  font-size: 50px;
+}
