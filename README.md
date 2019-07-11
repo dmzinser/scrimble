@@ -45,6 +45,15 @@ If the user correctly unscrambles a total of nine words (3 rounds of 3 words eac
 <img src="https://i.imgur.com/azrnV5L.png">
 If the user cannot correctly unscramble a total of nine words (3 rounds of 3 words each) within the allotted time frame, they have lost the game and are prompted accordingly.  After losing, they are given the option to play again and, if selected, the game will reset to the landing page.
 
+---
 ## Gameplay
 <img src="https://media.giphy.com/media/VzpyiteMV7f77D9AMX/giphy.gif">
-The above GIF is an example of a succesfully completed game of Scrimble.
+The above GIF is an example of Scrimble gameplay.
+
+---
+## Technologies
+HTML, CSS, Javascript.
+
+---
+## Next Steps
+There are several additional features I'd like to deploy in future versions of this game.  Most importantly, I'd like to add two player functionality as well as increase the difficulty for each successive round.  For example, after the first round is completed the game would choose new words from a new array containing more "difficult" words than were in the original array).
