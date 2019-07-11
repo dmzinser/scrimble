@@ -28,7 +28,7 @@ class Player {
     this.score = 0;
     this.round = 0;
     this.game = 0;
-    this.time = 10;
+    this.time = 15;
   };
 
   initPlayerOne() {
