@@ -1,7 +1,17 @@
 body {
   background-image: url("https://i.imgur.com/fcDaRMT.jpg");
+  background-position: center center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   background-size: 100% auto;
+  background-color: #6DD5FA;
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    background-image: -webkit-linear-gradient(top, #2980B9, #6DD5FA, #ffffff);
+  }
 }
 
 h1 {
