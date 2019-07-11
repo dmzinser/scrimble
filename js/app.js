@@ -77,10 +77,22 @@ const game = {
         this.chooseNewWordEasy();
         this.checkScore();
         this.checkRound();
+        this.greatJob();
       } else {
         this.tryAgain();
         clearAnswer.value = "";
       }
+  },
+  
+  greatJob() {
+    let scrimbles = document.querySelector("#scrimbles");
+    let greatJobImg = document.createElement("img");
+    greatJobImg.setAttribute("class", "great-job");
+    greatJobImg.src = "https://media.giphy.com/media/wQNbW62D5XSkU/giphy.gif";
+    scrimbles.appendChild(greatJobImg);
+    setTimeout(() => {
+      scrimbles.removeChild(greatJobImg);
+    }, 1500)
   },
 
   tryAgain() {
