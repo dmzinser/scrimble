@@ -78,9 +78,20 @@ const game = {
         this.checkScore();
         this.checkRound();
       } else {
-        // some kind of "wrong answer try again gif loads"
+        this.tryAgain();
         clearAnswer.value = "";
       }
+  },
+
+  tryAgain() {
+    let scrimbles = document.querySelector("#scrimbles");
+    let tryAgainImg = document.createElement("img");
+    tryAgainImg.setAttribute("class", "try-again");
+    tryAgainImg.src = "https://media.giphy.com/media/fpdql5AgW7ziM/giphy.gif";
+    scrimbles.appendChild(tryAgainImg);
+    setTimeout(() => {
+      scrimbles.removeChild(tryAgainImg);
+    }, 1500)
   },
 
   increaseScore() {
@@ -130,25 +141,22 @@ const game = {
         timer.innerText = (`Time Remaining: ${newPlayer.time}`);
       } else if(newPlayer.time === 0) {
         this.gameOver();
-        newPlayer.time = -1; // i HATE this hack to keep from continually reloading this.gameOver() bc newPlayer.time always equals zero w/o it.
+        newPlayer.time = -1;
         }
     }, 1000);
   },
 
   gameWon() {
     if(newPlayer.game === 1) {
-      newPlayer.time = -1;
       alert("You Won! Play Again");
       location.reload();
     }
   },
 
   gameOver() {
-    setTimeout(() => {
+    console.log("LOSER")
       alert(`You Lost ${newPlayer.name}!  Play Again?`);
       location.reload();
-    }, 1900)
-    // play again and reload
   }
 }
 document.querySelector("#input").addEventListener("keydown", game.playerAnswer.bind(game))
