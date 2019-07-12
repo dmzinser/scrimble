@@ -47,11 +47,11 @@ If the user cannot correctly unscramble a total of nine words (3 rounds of 3 wor
 
 ---
 ## Gameplay
-<img src="">
+<img src="https://media.giphy.com/media/ekAWvBWmdQlLS5GXSj/giphy.gif">
 The above GIF is an example of Scrimble gameplay.
 
 ---
-## Technologies
+## *Technologies
 *HTML
 *CSS
 *Javascript
