@@ -35,14 +35,7 @@ h1 {
 
 .input {
   margin: auto;
-  display: block;
-  margin-top: 150px;
-}
-
-input[type="text"] {
-  margin: auto;
-  display: block;
-  margin-top: 75px;
+  margin-top: 250px;
   border-radius: 10px;
   width: 200px;
   height: 10px;
@@ -50,6 +43,10 @@ input[type="text"] {
   padding: 19px;
   text-align: center;
   font-family: Arial;
+}
+
+.answer {
+  margin-top: 45px;
 }
 
 .span { 

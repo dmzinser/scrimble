@@ -3,21 +3,31 @@ let word = randomWordArrayEasy[randWord];
 
 let newWord = [];
 
-const inputField = document.querySelector("#input");
+const inputField = document.querySelector("#answer-input");
 inputField.style.display = "none";
+
+const nameInput = document.querySelector("#name-input");
+nameInput.style.display = "none";
 
 const startButton = document.querySelector("#start");
 startButton.addEventListener("click", () => {
-  createPlayer();
+  startButton.style.display = "none";
+  nameInput.style.display = "blocK";
+  nameInput.focus();
+  nameInput.addEventListener("keydown", (e) => {
+    if(e.keyCode === 13) {
+      createPlayer();
+    }
+  })
 });
 
 createPlayer = () => {
-  name = prompt("What is your name?");
+  name = nameInput.value;
   newPlayer = new Player(name);
   newPlayer.initPlayerOne();
-  startButton.style.display = "none";
+  nameInput.style.display = "none"
   inputField.style.display = "block";
-  document.querySelector("#input").focus();
+  document.querySelector("#answer-input").focus();
   game.shuffleWord(word);
   game.clock();
 }
@@ -32,7 +42,7 @@ class Player {
   };
 
   initPlayerOne() {
-    const playerOneName = document.querySelector("#playername");
+    const playerOneName = document.querySelector("#player-name");
     const score = document.querySelector("#score");
     const round = document.querySelector("#round");
     const time = document.querySelector("#time");
@@ -70,7 +80,7 @@ const game = {
   },
 
   checkMatch(x) {
-    let clearAnswer = document.querySelector("#input");
+    let clearAnswer = document.querySelector("#answer-input");
       if(x === word) {
         this.increaseScore();
         this.removeWord();
@@ -116,7 +126,7 @@ const game = {
   },
 
   chooseNewWordEasy() {
-    let clearAnswer = document.querySelector("#input");
+    let clearAnswer = document.querySelector("#answer-input");
     clearAnswer.value = "";
     let scrimbleDisplay = document.querySelector("#scrimbles");
     scrimbleDisplay.innerHTML = "";
@@ -171,4 +181,4 @@ const game = {
       location.reload();
   }
 }
-document.querySelector("#input").addEventListener("keydown", game.playerAnswer.bind(game))
+document.querySelector("#answer-input").addEventListener("keydown", game.playerAnswer.bind(game))
