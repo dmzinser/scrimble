@@ -3,11 +3,14 @@ let word = randomWordArrayEasy[randWord];
 
 let newWord = [];
 
-const inputField = document.querySelector("#answer-input");
-inputField.style.display = "none";
+const answerInput = document.querySelector("#answer-input");
+answerInput.style.display = "none";
 
 const nameInput = document.querySelector("#name-input");
 nameInput.style.display = "none";
+
+const tryAgainButton = document.querySelector("#try-again");
+tryAgainButton.style.display = "none";
 
 const startButton = document.querySelector("#start");
 startButton.addEventListener("click", () => {
@@ -27,9 +30,9 @@ startButton.addEventListener("click", () => {
 createPlayer = () => {
   name = nameInput.value;
   newPlayer = new Player(name);
-  newPlayer.initPlayerOne();
+  newPlayer.initPlayer();
   nameInput.style.display = "none"
-  inputField.style.display = "block";
+  answerInput.style.display = "block";
   document.querySelector("#answer-input").focus();
   game.shuffleWord(word);
   game.clock();
@@ -41,15 +44,15 @@ class Player {
     this.score = 0;
     this.round = 0;
     this.game = 0;
-    this.time = 50;
+    this.time = 45;
   };
 
-  initPlayerOne() {
-    const playerOneName = document.querySelector("#player-name");
+  initPlayer() {
+    const playerName = document.querySelector("#player-name");
     const score = document.querySelector("#score");
     const round = document.querySelector("#round");
     const time = document.querySelector("#time");
-    playerOneName.innerText = this.name;
+    playerName.innerText = this.name;
     score.innerText = (`Score: ${this.score}`);
     round.innerText = (`Rounds Won: ${this.round}`);
     time.innerText = (`Time Remaining: ${this.time}`);
@@ -76,15 +79,15 @@ const game = {
   },
   
   playerAnswer(e) {  
-    let x = e.target.value;
+    let playerAnswer = e.target.value;
       if(e.keyCode === 13) {
-      this.checkMatch(x);
+      this.checkMatch(playerAnswer);
       }
   },
 
-  checkMatch(x) {
+  checkMatch(playerAnswer) {
     let clearAnswer = document.querySelector("#answer-input");
-      if(x === word) {
+      if(playerAnswer === word) {
         this.increaseScore();
         this.removeWord();
         this.chooseNewWordEasy();
@@ -120,7 +123,7 @@ const game = {
   },
 
   increaseScore() {
-    newPlayer.score +=3;
+    newPlayer.score +=1;
     score.innerText = (`Score: ${newPlayer.score}`);
   },
 
@@ -139,7 +142,7 @@ const game = {
 },
 
   checkScore() {
-    if(newPlayer.score === 1) {
+    if(newPlayer.score === ) {
       newPlayer.score = 0;
       score.innerText = (`Score: ${newPlayer.score}`);
       newPlayer.round +=1;
@@ -178,7 +181,7 @@ const game = {
   },
 
   clearPlayerInfo() {
-    inputField.style.display = "none";
+    answerInput.style.display = "none";
     const name = document.querySelector("#player-name");
     name.innerText = "";
     const score = document.querySelector("#score");
@@ -189,30 +192,48 @@ const game = {
     game.innerText = "";
     const timer = document.querySelector("#time");
     timer.innerText = "";
+    let scrimbleDisplay = document.querySelector("#scrimbles");
+    scrimbleDisplay.innerHTML = "";
   },
 
   gameWon() {
     this.clearPlayerInfo();
+    let gameName = document.querySelector(".game-name");
+    gameName.style.display = "none";
+    let nightmode = document.querySelector(".nightmode");
+    nightmode.style.display = "block";
     let scrimbles = document.querySelector("#scrimbles");
-    let greatJobImg = document.createElement("img");
-    greatJobImg.setAttribute("class", "great-job");
-    greatJobImg.src = "https://media.giphy.com/media/wQNbW62D5XSkU/giphy.gif";
-    scrimbles.appendChild(greatJobImg);
+    let gameWonImg = document.createElement("img");
+    gameWonImg.setAttribute("class", "game-won");
+    gameWonImg.src = "https://media.giphy.com/media/YXGDd9bw8Wewo/giphy.gif";
+    scrimbles.appendChild(gameWonImg);
     setTimeout(() => {
-      scrimbles.removeChild(greatJobImg);
-    }, 1500)
+      scrimbles.removeChild(gameWonImg);
+    }, 13250);
+    this.reload();
   },
 
   gameOver() {
     this.clearPlayerInfo();
+    let gameName = document.querySelector(".game-name");
+    gameName.style.display = "none";
+    let nightmode = document.querySelector(".nightmode");
+    nightmode.style.display = "block";
     let scrimbles = document.querySelector("#scrimbles");
-    let tryAgainImg = document.createElement("img");
-    tryAgainImg.setAttribute("class", "try-again");
-    tryAgainImg.src = "https://media.giphy.com/media/fpdql5AgW7ziM/giphy.gif";
-    scrimbles.appendChild(tryAgainImg);
+    let gameOverImg = document.createElement("img");
+    gameOverImg.setAttribute("class", "game-over");
+    gameOverImg.src = "https://media.giphy.com/media/dkuZHIQsslFfy/giphy.gif";
+    scrimbles.appendChild(gameOverImg);
     setTimeout(() => {
-      scrimbles.removeChild(tryAgainImg);
-    }, 1500)
+      scrimbles.removeChild(gameOverImg);
+    }, 13250);
+    this.reload();
+  },
+  
+  reload() {
+    setInterval(() => {
+      location.reload();
+    }, 13250);
   }
 }
 document.querySelector("#answer-input").addEventListener("keydown", game.playerAnswer.bind(game))
