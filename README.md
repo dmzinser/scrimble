@@ -11,9 +11,9 @@
 This is the Scrimble landing page.  Here the user sees an irreverent Tim & Eric background image; the title of the game and the start button which will prompt the user to enter their name.
 
 ---
-# User Name Prompt
-<img src="https://i.imgur.com/mwEC0m6.png">
-This is the Scrimble name prompt page.  After clicking the "Start" button on the previous page, the user is asked to enter their name which will append, along with other player metrics, underneath the game title.
+# User Name Input
+<img src="https://i.imgur.com/AszrQDI.png">
+This is the Scrimble name input page.  After clicking the "Start" button on the previous page, the user is asked to type in their name which will append upon pressing enter, along with other player metrics, underneath the game title.
 
 ---
 # First Word Appended To Display (Game Starts)
@@ -37,23 +37,29 @@ After the user correctly unscrambles 3 words, their round metric incrases by 1 p
 
 ---
 # Game Won
-<img src="https://i.imgur.com/mU5yobd.png">
-If the user correctly unscrambles a total of nine words (3 rounds of 3 words each) they have won the game and are prompted accordingly.  After winning, they are given the option to play again and, if selected, the game will reset to the landing page.
+<img src="https://i.imgur.com/aXBsf8V.png">
+If the user correctly unscrambles a total of nine words (3 rounds of 3 words each) they have won the game and are notified with a game winning gif.  After the gif plays and the screen fades to black, the game will reset to the landing page and the user can play again.
 
 ---
 # Game Lost
-<img src="https://i.imgur.com/azrnV5L.png">
-If the user cannot correctly unscramble a total of nine words (3 rounds of 3 words each) within the allotted time frame, they have lost the game and are prompted accordingly.  After losing, they are given the option to play again and, if selected, the game will reset to the landing page.
+<img src="https://i.imgur.com/sRTkCLY.png">
+If the user cannot correctly unscramble a total of nine words (3 rounds of 3 words each) within the allotted time frame, they have lost the game and are notified with an appropriate gif.  After the gif plays and the screen fades to black, the game will reset to the landing page and the user can play again.
 
 ---
 ## Gameplay
-<img src="https://media.giphy.com/media/VzpyiteMV7f77D9AMX/giphy.gif">
+<img src="">
 The above GIF is an example of Scrimble gameplay.
 
 ---
 ## Technologies
-HTML, CSS, Javascript.
+*HTML
+*CSS
+*Javascript
+
+---
+## Game Link
+[Play Scrimble](https://dmzinser.github.io/scrimble/)
 
 ---
 ## Next Steps
-There are several additional features I'd like to deploy in future versions of this game.  Most importantly, I'd like to add two player functionality as well as increase the difficulty for each successive round.  For example, after the first round is completed the game would choose new words from a new array containing more "difficult" words than were in the original array).
+There are several additional features I'd like to deploy in future versions of this game.  Most importantly, I'd like to add two player functionality as well as increase the difficulty for each successive round.  For example, after the first round is completed the game would choose new words from a new array containing more "difficult" words than were in the original array).  I would also like to add images that display and function as hints for the player if too much time has passed on a single word.
