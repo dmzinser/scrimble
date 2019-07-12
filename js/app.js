@@ -13,7 +13,10 @@ const startButton = document.querySelector("#start");
 startButton.addEventListener("click", () => {
   startButton.style.display = "none";
   nameInput.style.display = "blocK";
-  nameInput.focus();
+  nameInput.value = "Your Name";
+  nameInput.addEventListener("click", () => {
+    nameInput.value = "";
+  });
   nameInput.addEventListener("keydown", (e) => {
     if(e.keyCode === 13) {
       createPlayer();
