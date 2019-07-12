@@ -41,7 +41,7 @@ class Player {
     this.score = 0;
     this.round = 0;
     this.game = 0;
-    this.time = 15;
+    this.time = 50;
   };
 
   initPlayerOne() {
@@ -120,7 +120,7 @@ const game = {
   },
 
   increaseScore() {
-    newPlayer.score +=1;
+    newPlayer.score +=3;
     score.innerText = (`Score: ${newPlayer.score}`);
   },
 
@@ -139,7 +139,7 @@ const game = {
 },
 
   checkScore() {
-    if(newPlayer.score === 3) {
+    if(newPlayer.score === 1) {
       newPlayer.score = 0;
       score.innerText = (`Score: ${newPlayer.score}`);
       newPlayer.round +=1;
@@ -154,34 +154,65 @@ const game = {
       score.innerText = (`Score: ${newPlayer.score}`);
       newPlayer.round = 0;
       round.innerText = (`Rounds Won: ${newPlayer.round}`);
+      this.checkGameWon();
+    }
+  },
+
+  checkGameWon() {
+    if(newPlayer.game === 1) {
       this.gameWon();
     }
   },
   
   clock() {
     setInterval( () => {
-      if(newPlayer.time > 0) {
+      if(newPlayer.time > 0 && newPlayer.game <1) {
         newPlayer.time -=1;
         const timer = document.querySelector("#time");
         timer.innerText = (`Time Remaining: ${newPlayer.time}`);
       } else if(newPlayer.time === 0) {
         this.gameOver();
         newPlayer.time = -1;
-        }
+      }
     }, 1000);
   },
 
+  clearPlayerInfo() {
+    inputField.style.display = "none";
+    const name = document.querySelector("#player-name");
+    name.innerText = "";
+    const score = document.querySelector("#score");
+    score.innerText = "";
+    const round = document.querySelector("#round");
+    round.innerText = "";
+    const game = document.querySelector("#game");
+    game.innerText = "";
+    const timer = document.querySelector("#time");
+    timer.innerText = "";
+  },
+
   gameWon() {
-    if(newPlayer.game === 1) {
-      alert("You Won! Play Again");
-      location.reload();
-    }
+    this.clearPlayerInfo();
+    let scrimbles = document.querySelector("#scrimbles");
+    let greatJobImg = document.createElement("img");
+    greatJobImg.setAttribute("class", "great-job");
+    greatJobImg.src = "https://media.giphy.com/media/wQNbW62D5XSkU/giphy.gif";
+    scrimbles.appendChild(greatJobImg);
+    setTimeout(() => {
+      scrimbles.removeChild(greatJobImg);
+    }, 1500)
   },
 
   gameOver() {
-    console.log("LOSER")
-      alert(`You Lost ${newPlayer.name}!  Play Again?`);
-      location.reload();
+    this.clearPlayerInfo();
+    let scrimbles = document.querySelector("#scrimbles");
+    let tryAgainImg = document.createElement("img");
+    tryAgainImg.setAttribute("class", "try-again");
+    tryAgainImg.src = "https://media.giphy.com/media/fpdql5AgW7ziM/giphy.gif";
+    scrimbles.appendChild(tryAgainImg);
+    setTimeout(() => {
+      scrimbles.removeChild(tryAgainImg);
+    }, 1500)
   }
 }
 document.querySelector("#answer-input").addEventListener("keydown", game.playerAnswer.bind(game))
