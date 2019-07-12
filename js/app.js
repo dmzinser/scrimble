@@ -142,7 +142,7 @@ const game = {
 },
 
   checkScore() {
-    if(newPlayer.score === ) {
+    if(newPlayer.score === 3) {
       newPlayer.score = 0;
       score.innerText = (`Score: ${newPlayer.score}`);
       newPlayer.round +=1;
