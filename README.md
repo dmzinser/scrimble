@@ -62,4 +62,4 @@ The above GIF is an example of Scrimble gameplay.
 
 ---
 ## Next Steps
-There are several additional features I'd like to deploy in future versions of this game.  Most importantly, I'd like to add two player functionality as well as increase the difficulty for each successive round.  For example, after the first round is completed the game would choose new words from a new array containing more "difficult" words than were in the original array).  I would also like to add images that display and function as hints for the player if too much time has passed on a single word.
+There are several additional features I'd like to deploy in future versions of this game.  Most importantly, I'd like to add two player functionality as well as increase the difficulty for each successive round.  For example, after the first round is completed the game would choose new words from a new array containing more "difficult" words than were in the original array.  I would also like to add images that display and function as hints for the player if too much time has passed on a single word.
